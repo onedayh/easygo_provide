@@ -1,0 +1,5 @@
+#footers{
+    @include hl(60px, 60px);
+    @include sc(12px, $lessFont);
+    height: 60px
+}

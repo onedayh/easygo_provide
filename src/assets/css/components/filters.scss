@@ -1,0 +1,12 @@
+#filters{
+    padding: 8px 0 20px;
+    overflow: hidden;
+    .my-month{
+        .el-input__inner{
+            height: 28px
+        }
+        .el-input__prefix, .el-input__suffix{
+            top: -6px
+        }
+    }
+}

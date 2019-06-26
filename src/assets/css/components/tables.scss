@@ -1,0 +1,110 @@
+#tables{
+    position: relative;
+    .table-header{
+        @include bgColor(#f5f7fa);
+        @include sc(13px, #6f7683);
+        font-weight: bold
+    }
+    .el-table{
+        @include border(#e6ebf5);
+        //border-bottom: none;
+        th, td{
+            padding: 8px 0
+        }
+        th{
+            @include bgColor(#f5f7fa);
+            &:first-child .cell{
+                padding-left: 20px
+            }
+        }
+        tbody tr{
+            &:last-child{
+                td{
+                    border-bottom: none
+                }
+            }
+            td:first-child .cell{
+                padding-left: 20px
+            }
+        }
+        .caret-wrapper{
+            height: 19px
+        }
+        .sort-caret.ascending {
+            top: -3px
+        }
+        .sort-caret.descending {
+            bottom: 0
+        }
+        &:before{
+            z-index: 0;
+            width: 0;
+            height: 0;
+            background-color: transparent;
+        }
+        .table-img{
+            @include wh(50px, 50px)
+        }
+    }
+    .el-button--text{
+        @include sc(13px, $themeColor);
+        &:focus, &:hover, &:active{
+            @include bgColor(transparent);
+            border: none;
+            color: $themeColor
+        }
+    }
+    .el-button--small, .el-button--small.is-round{
+        padding: 0
+    }
+    .feedback{
+        @include hl(60px, 60px);
+        position: absolute;
+        top: 40px;
+        width: 100%;
+        text-align: center;
+        i{
+            font-size: 20px
+        }
+        span{
+            @include sc(14px, #909399)
+        }
+    }
+    .page-box{
+        height: 70px;
+        padding-top: 30px;
+        position: relative;
+        .el-pagination{
+            float: right;
+            .el-pagination__total{
+                position: absolute;
+                left: 10px
+            }
+            .el-pager li {
+                min-width: 24px;
+                @include hl(24px, 24px);
+                padding: 0 6px;
+                @include sc(12px, $moreFont);
+                @include borderRadius(4px);
+                text-align: center;
+                margin: 0 5px;
+                &.active{
+                    color: $themeColor;
+                    background-color: #e7f6f5
+                }
+            }
+            button {
+                .el-icon{
+                    margin-top: -2px;
+                    &:before{
+                        @include sc(18px, $moreFont);
+                        font-weight: normal
+                    }
+                }
+                &:disabled .el-icon:before {
+                    color: #e5e5e5
+                }
+            }
+        }
+    }
+}

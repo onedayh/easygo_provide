@@ -1,0 +1,30 @@
+#sidebars{
+    width: 208px;
+    float: left;
+    padding: 10px 0;
+    dt{
+        color: $lessFont;
+        padding-left: 64px;
+        @include hl(40px, 40px)
+    }
+    dd{
+        padding-left: 60px;
+        @include hl(36px, 36px);
+        border-left: 4px solid transparent;
+        cursor: pointer;
+        &.router-link-active, &:hover{
+            color: $themeColor;
+            @include bgColor(#e7f6f5)
+        }
+        &.router-link-active{
+            font-weight: bold;
+            border-left-color: $themeColor;
+            &:hover{
+                border-left-color: $themeColor;
+            }
+        }
+        &:hover{
+            border-left-color: #e7f6f5;
+        }
+    }
+}

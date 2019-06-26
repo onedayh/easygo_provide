@@ -1,0 +1,110 @@
+#headers{
+    height: 64px;
+    padding: 0 30px;
+    margin-bottom: 30px;
+    background: url("../images/header_bg.png") no-repeat 0;
+    .logo, .nav-list, .set{
+        overflow: hidden;
+        float: left
+    }
+    .logo{
+        img{
+            float: left;
+            margin-top: 15px
+        }
+        p{
+            float: left;
+            line-height: 64px;
+            @include sc(16px, $white);
+            padding-left: 10px
+        }
+    }
+    .nav-list{
+        padding-left: 20px;
+        .nav{
+            float: left;
+            @include hl(64px, 60px);
+            @include sc(16px, $white);
+            border-bottom: 4px solid transparent;
+            width: 45px;
+            margin: 0 23px;
+            cursor: pointer;
+            &.active{
+                color: $themeColor;
+                font-weight: bold;
+                border-bottom-color: $themeColor
+            }
+            &:hover{
+                color: $themeColor
+            }
+        }
+    }
+    .info, .name{
+        float: right;
+        @include hl(64px, 64px);
+        margin: 0 10px;
+        color: $white;
+        padding: 0 40px 0 30px;
+    }
+    .name{
+        font-size: 16px;
+    }
+    .info{
+        position: relative;
+        cursor: default;
+        z-index: 10;
+        &:after{
+            content: '';
+            @include wh(0, 0);
+            border: 5px solid transparent;
+            border-top-color: $white;
+            position: absolute;
+            top: 30px;
+            right: 20px;
+            transition: all .2s;
+        }
+        &:hover{
+            @include bgColor(#0f2855);
+            color: $themeColor;
+            &:after{
+                transform: rotate(180deg);
+                border-top-color: $themeColor;
+                top: 25px;
+            }
+        }
+        .info-item{
+            position: absolute;
+            width: 100%;
+            top: 64px;
+            left: 0;
+            -webkit-box-shadow: 0 0 15px #ccc;
+            -moz-box-shadow: 0 0 15px #ccc;
+            box-shadow: 0 0 15px #ccc;
+            li{
+                @include hl(40px, 40px);
+                @include sc(13px, #777);
+                @include bgColor($white);
+                cursor: pointer;
+                &:hover{
+                    color: $themeColor;
+                }
+            }
+        }
+    }
+    .slide-fade-enter, .slide-fade-leave-to {
+        transform: translateY(10px)
+    }
+
+    .el-dialog{
+        width: 400px;
+        .change-pass{
+            overflow: hidden;
+            input{
+                margin-bottom: 20px;
+            }
+        }
+        .el-message-box__btns{
+            padding: 5px 0 0;
+        }
+    }
+}

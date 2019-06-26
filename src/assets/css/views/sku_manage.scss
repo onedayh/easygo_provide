@@ -1,0 +1,11 @@
+#skuManage{
+    .sku-fliter{
+        padding-left: 341px;
+        position: relative;
+        .filter-slot{
+            position: absolute;
+            left: 0;
+            top: 8px;
+        }
+    }
+}

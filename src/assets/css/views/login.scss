@@ -1,0 +1,69 @@
+#login{
+    @include wh(100%, 100%);
+    background: url(../images/login_bg.png) no-repeat 50%;
+    overflow: hidden;
+    .login-wrap {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        @include wh(380px, 436px);
+        @include borderRadius(6px);
+        @include bgColor($white);
+        box-shadow: 0 0 98px rgba(2, 79, 76, .08);
+        .logo{
+            padding-top: 46px
+        }
+        .font{
+            padding-top: 15px
+        }
+        .login-input{
+            width: 300px;
+            margin: 43px auto 0;
+            input, button {
+                display: block;
+                width: 100%
+            }
+            .login-btn{
+                @include hl(42px, 42px);
+                font-size: 18px
+            }
+            input{
+                @include border(#bbb);
+                padding-left: 50px;
+                background-position: 13px 6px;
+                background-repeat: no-repeat;
+                font-size: 16px
+            }
+            .admin{
+                height: 45px;
+                border-bottom: none;
+                @include borderRadius(6px 6px 0 0);
+                background-image: url("../images/login_admin.png")
+            }
+            .pass{
+                height: 46px;
+                @include borderRadius(0 0 6px 6px);
+                background-image: url("../images/login_pass.png")
+            }
+        }
+    }
+    .check{
+        padding: 20px 0;
+    }
+    .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner{
+        @include bgColor($white);
+        border-color: #c7c7c7
+    }
+    .el-checkbox__inner::after{
+        border-color: $themeColor
+    }
+    .el-checkbox__inner, .el-checkbox__input.is-focus .el-checkbox__inner, .el-checkbox__input:hover, .el-checkbox__inner:hover{
+        border-color: #c7c7c7
+    }
+    .el-checkbox, .el-checkbox__input.is-checked+.el-checkbox__label{
+        color: #c7c7c7
+    }
+}

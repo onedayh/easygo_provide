@@ -1,0 +1,430 @@
+//reset
+*, *:before, *:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+input, select,button, textarea{
+    outline: none;
+    font-size: 14px
+}
+textarea{
+    resize: none
+}
+ul, ol, li{
+    list-style: none
+}
+i{
+    font-style: normal
+}
+a{
+    text-decoration: none;
+    &:hover{
+        text-decoration: underline
+    }
+}
+img{
+    @include border(none)
+}
+table{
+    border-spacing: 0;
+    table-layout: fixed
+}
+input::-ms-clear, input::-ms-reveal{
+    display: none
+}
+input::-webkit-input-placeholder{
+    color: $lessFont
+}
+input::-moz-placeholder{
+    color: $lessFont
+}
+input:-moz-placeholder{
+    color: $lessFont
+}
+input:-ms-input-placeholder{
+    color: $lessFont
+}
+
+//base
+html, body, #app{
+    height: 100%;
+    min-height: 100%;
+    min-width: 1280px
+}
+body{
+    @include sc(14px, $moreFont);
+    font-family: "Microsoft YaHei";
+    word-wrap: break-word;
+    @include bgColor($lessBg);
+    overflow-x: hidden
+}
+.tc{
+    text-align: center
+}
+.h{
+    font-weight: bold
+}
+.l{
+    float: left
+}
+.r{
+    float: right
+}
+.wrap{
+    margin: 0 30px;
+    @include bgColor($white);
+    .container{
+        border-left: 1px solid $borderColor;
+        margin-left: 208px;
+        padding: 0 30px 30px 30px;
+    }
+}
+.el-dialog{
+    @include borderRadius(6px);
+    .el-dialog__header{
+        @include bgColor(#f5f5f5);
+        @include borderRadius(6px 6px 0 0);
+    }
+    .change-btn{
+        text-align: right;
+    }
+}
+
+
+// 页面标题
+#titles{
+    font-size: 20px;
+    @include hl(60px, 60px);
+    font-weight: bold;
+}
+
+// 按钮
+.btn{
+    @include border($themeColor);
+    @include bgColor($themeColor);
+    @include borderRadius(6px);
+    @include hl(42px, 42px);
+    @include sc(16px, $white);
+    padding: 0;
+    &:focus{
+        @include bgColor($themeColor);
+        @include border($themeColor);
+        color: $white
+    }
+    &:hover{
+        @include bgColor($hover);
+        color: $white;
+        @include border($hover)
+    }
+    &:active{
+        @include bgColor($themeColor);
+        @include border($themeColor)
+    }
+}
+.el-button{
+    @include hl(28px, 28px);
+    @include sc(12px, $white);
+    @include border($themeColor);
+    @include borderRadius(4px);
+    padding: 0 16px;
+    cursor: pointer;
+    background: $themeColor;
+    &:focus, &:hover, &:active{
+        @include bgColor($themeColor);
+        @include border($themeColor);
+        color: $white
+    }
+}
+.el-button--text{
+    @include sc(13px, $themeColor);
+    border: none;
+    background: transparent;
+    &:focus, &:hover, &:active{
+        color: $themeColor
+    }
+}
+.el-button.is-disabled, .el-button.is-disabled:focus, .el-button.is-disabled:hover {
+    color: #fff;
+    cursor: not-allowed;
+    background-image: none;
+    @include bgColor($lessFont);
+    border-color: $lessFont
+}
+.el-message-box__btns{
+    .el-button--default{
+        &:first-child{
+            @include bgColor($white);
+            color: $moreFont;
+            border-color: $lessFont;
+        }
+    }
+}
+
+// 导出按钮
+.export{
+    background: $white url("../images/export_icon.png") no-repeat 10px center;
+    padding: 0 15px 0 32px;
+    color: $themeColor;
+    &:focus{
+        @include bgColor($white);
+        @include border($themeColor);
+        color: $themeColor
+    }
+    &:hover, &:active{
+        @include bgColor(#f1fdfd);
+        color: $themeColor;
+        @include border($themeColor)
+    }
+}
+// 导入按钮
+.import{
+    background-image: url('../images/import_icon.png');
+}
+// 下载按钮
+.down{
+    background-image: url('../images/down_icon.png');
+}
+// 过渡动画 slide-fade
+.slide-fade-enter-active {
+    transition: all .3s ease
+}
+.slide-fade-leave-active {
+    transition: all .1s cubic-bezier(1.0, 0.5, 0.8, 1.0)
+}
+.slide-fade-enter, .slide-fade-leave-to{
+    opacity: 0;
+}
+
+// 弹窗
+.el-message-box__wrapper{
+    .el-message-box {
+        width: 350px;
+        .el-message-box__header {
+            height: 45px;
+            background-color: #f5f5f5;
+            border-bottom: #e6ebf5
+        }
+        .el-message-box__content {
+            font-size: 13px;
+            padding: 26px 20px;
+            .el-icon-warning {
+                color: #ff6a68
+            }
+        }
+        .el-message-box__btns {
+            padding: 4px 20px 0;
+            button{
+                &:nth-child(2) {
+                    margin-left: 10px;
+                    background-color: #60c0bd;
+                    border-color: #60c0bd
+                }
+            }
+        }
+    }
+}
+
+// 将ele组件改成主题色
+.el-range-editor.is-active,
+.el-range-editor.is-active:hover,
+.el-select .el-input.is-focus .el-input__inner,
+.el-input__inner:focus,
+.el-select .el-input__inner:focus,
+.el-textarea__inner:focus{
+    border-color: $themeColor
+}
+.el-date-table td.end-date span,
+.el-date-table td.start-date span,
+.el-tabs__active-bar{
+    @include bgColor($themeColor)
+}
+.el-select-dropdown__item.selected,
+.el-date-table td.today span,
+.el-date-table td.available:hover,
+.el-tabs__item:hover,
+.el-tabs__item.is-active{
+    color: $themeColor
+}
+.el-tabs__nav-wrap::after{
+    height: 1px
+}
+.el-tabs__active-bar{
+    height: 3px
+}
+.el-tabs{
+    padding-bottom: 20px;
+    .el-tabs__header{
+        margin: 0 0 5px 0
+    }
+    .el-tab-pane{
+        @include sc(12px, $lessFont);
+        @include hl(30px, 30px);
+        .el-input{
+            width: 150px
+        }
+        span{
+            float: left
+        }
+    }
+}
+
+
+// form
+.no-filter{
+    margin: 20px 0;
+}
+.select-width{
+    width: 120px;
+    margin-right: 10px
+}
+.data-picker{
+    width: 300px;
+    margin-right: 10px;
+    .el-range-separator{
+        padding: 0
+    }
+}
+.e-input{
+    width: 250px
+}
+
+// 审核中
+.reject{
+    padding: 5px;
+    @include bgColor(#f9a05c);
+    @include borderRadius(8px);
+    color: $white
+}
+
+// tips
+.tips{
+    @include hl(50px, 40px);
+    padding-bottom: 10px;
+    i{
+        color: #999;
+        padding: 3px 3px 3px 24px;
+        background: url('../images/back.png') no-repeat left center;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline
+        }
+    }
+}
+
+.clear-float{
+    overflow: hidden;
+    padding: 10px 0;
+    position: relative;
+    p{
+        float: left;
+        width: 33.3%;
+        font-size: 12px;
+        @include hl(20px, 20px);
+        span{
+            color: #999
+        }
+    }
+    div{
+        position: absolute;
+        @include hl(28px, 28px);
+        top: 6px;
+        right: 0;
+        font-size: 12px;
+        padding: 0 16px;
+        @include borderRadius(14px);
+        //待审批
+        &.pending{
+            color: #e8761e;
+            @include bgColor(#fae8da)
+        }
+        &.passed{
+            color: #408a55;
+            @include bgColor(#d7f0de)
+        }
+        &.not-pass{
+            color: #a3aec0;
+            @include bgColor(#f5f7fa)
+        }
+    }
+}
+.el-input__inner, .el-textarea__inner{
+    font-size: 13px;
+    font-family: 'Microsoft YaHei';
+}
+
+.el-form{
+    padding: 10px 0 20px 0;
+    h5{
+        @include hl(40px, 40px);
+        @include sc(14px, $dt);
+        @include bgColor(#eee);
+        padding-left: 20px;
+        margin-bottom: 20px
+    }
+    .form-mode{
+        .el-form-item__label{
+            font-size: 13px
+        }
+        .el-input__inner{
+            @include hl(36px, 36px);
+            width: 280px;
+            font-size: 13px
+        }
+        .el-textarea__inner{
+            @include wh(500px, 100px);
+            resize:none
+        }
+        .el-form-item__error{
+            top: 9px;
+            left: 300px
+        }
+        .seed{
+            margin-right: 10px;
+            float: left;
+            .el-input__inner{
+                width: 135px;
+                font-size: 13px
+            }
+            .el-form-item__error{
+                top: 100%;
+                left: 0
+            }
+        }
+        .short-input{
+            .el-input__inner{
+                width: 135px
+            }
+            .el-form-item__error{
+                left: 150px
+            }
+        }
+    }
+    .submit{
+        @include wh(120px, 40px);
+        font-size: 16px;
+        margin: 20px 0 0 140px;
+    }
+}
+.el-dialog{
+    width: 400px;
+    .tit{
+        padding-bottom: 10px
+    }
+    .dialog-footer{
+        .el-button{
+            &:first-child{
+                @include bgColor($white);
+                color: $themeColor
+            }
+
+        }
+    }
+}
+.dialog-input{
+    @include wh(100%, 40px);
+    padding: 0 12px;
+    @include sc(14px, $moreFont);
+    @include borderRadius(6px);
+    @include border($lessFont);
+}
